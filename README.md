@@ -6,7 +6,8 @@ noise generator, a switchable low-pass / high-pass ladder filter, three decay
 envelopes driven by a per-step velocity, an eight-step sequencer with pitch and
 velocity per step, and a 24-point patchbay with working cables.
 
-Sibling to [Fractone](../harm): same panel language, same preset system, same
+Sibling to [Fractone](https://github.com/taddeimania/fractone): same panel
+language, same preset system, same
 "follows Live unless you tell it not to" approach to the clock.
 
 ---
@@ -218,6 +219,12 @@ through two halfband stages, which keeps the oscillators, hard sync and
 through-zero FM clean.
 
 ---
+
+## License
+
+AGPLv3, in `LICENSE`. Stepkin shares a good deal of its panel, patchbay and
+preset code with [Fractone](https://github.com/taddeimania/fractone), which is
+AGPLv3, so it carries the same licence.
 
 ## Notes
 
