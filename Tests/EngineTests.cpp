@@ -72,7 +72,9 @@ bool allFinite (const std::vector<float>& v)
 // Goertzel magnitude of one bin.
 double magAt (const std::vector<float>& v, double hz, double sr)
 {
-    const double w = 2.0 * M_PI * hz / sr;
+    // dsp::kPi rather than M_PI: the latter is not standard C++ and MSVC only
+    // defines it when _USE_MATH_DEFINES is set before <cmath>.
+    const double w = 2.0 * dsp::kPi * hz / sr;
     const double c = 2.0 * std::cos (w);
     double s1 = 0.0, s2 = 0.0;
     for (auto x : v)
