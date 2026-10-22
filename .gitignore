@@ -1,0 +1,48 @@
+# Build output
+build/
+build-*/
+cmake-build-*/
+out/
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+
+# JUCE downloaded by FetchContent / Projucer output
+_deps/
+JuceLibraryCode/
+Builds/
+
+# Compiled artefacts
+*.vst3/
+*.component/
+*.app/
+*.dSYM/
+*.o
+*.a
+*.dylib
+*.so
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+
+# Editors
+.vscode/
+.idea/
+.cache/
+*.swp
+*~
+
+# macOS
+.DS_Store
+._*
+
+# Local reference material (third-party manual renders). Never commit.
+.ref/
+*.pdf
