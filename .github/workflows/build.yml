@@ -124,11 +124,16 @@ jobs:
               echo "ARCHIVE=$name.tar.gz" >> "$GITHUB_ENV" ;;
           esac
 
+      # Let the action wrap the archive in its own zip. Uploading it raw
+      # (archive: false) makes the artifact itself a zip, which the download
+      # step then unpacks, so the macOS and Windows archives arrived as loose
+      # folders and could not be attached to the release. Our archive is a
+      # single opaque file either way, so the permissions and the macOS
+      # signature inside it still survive the round trip.
       - name: Upload
         uses: actions/upload-artifact@v7
         with:
           path: ${{ env.ARCHIVE }}
-          archive: false
           if-no-files-found: error
           retention-days: 30
 
@@ -149,11 +154,23 @@ jobs:
           path: dist
           merge-multiple: true
 
+      # Fail here rather than part way through uploading assets, so a packaging
+      # problem is obvious instead of showing up as a confusing gh error.
+      - name: Check the downloads are archives, not unpacked folders
+        run: |
+          ls -la dist
+          bad=0
+          for f in dist/*; do
+            [ -f "$f" ] && continue
+            echo "::error::$f is a folder, not an archive. The artifact was unpacked on download."
+            bad=1
+          done
+          [ "$bad" = 0 ]
+
       - name: Create the draft release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ls -la dist
           gh release create "$GITHUB_REF_NAME" dist/* \
             --draft \
             --verify-tag \
