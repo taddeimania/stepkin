@@ -14,11 +14,7 @@ The first release of Stepkin, a semi-modular analog-style percussion synthesiser
 ### Install
 Download the file for your system below.
 
-- **macOS** (universal, Apple silicon + Intel): unzip, move `Stepkin.vst3` into `~/Library/Audio/Plug-Ins/VST3` and `Stepkin.component` into `~/Library/Audio/Plug-Ins/Components`, then run:
-  ```sh
-  xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Stepkin.vst3 ~/Library/Audio/Plug-Ins/Components/Stepkin.component
-  ```
-  The build isn't signed with an Apple developer certificate, so without this step your DAW won't load it. `Stepkin.app` is a standalone version you can run without a DAW.
+- **macOS** (universal, Apple silicon + Intel): unzip, move `Stepkin.vst3` into `~/Library/Audio/Plug-Ins/VST3` and `Stepkin.component` into `~/Library/Audio/Plug-Ins/Components`. The build is signed and notarised by Apple, so your DAW loads it straight away. `Stepkin.app` is a standalone version you can run without a DAW.
 - **Windows**: unzip and copy the `Stepkin.vst3` folder into `C:\Program Files\Common Files\VST3`. `Stepkin.exe` is the standalone version.
 - **Linux**: extract, then copy `Stepkin.vst3` into `~/.vst3`.
 
