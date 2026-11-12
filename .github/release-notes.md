@@ -1,3 +1,5 @@
+Stepkin 1.0.1: the macOS build is signed and notarised by Apple, so your DAW loads it straight away, with no quarantine command first. Nothing else has changed since 1.0.0.
+
 The first release of Stepkin, a semi-modular analog-style percussion synthesiser for any DAW that hosts VST3 or Audio Unit instruments.
 
 ### What's in it
